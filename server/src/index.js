@@ -665,7 +665,7 @@ async function analyzePdf(url) {
   const text = cleanText(rawText)
   const lines = rawText.split(/\r?\n/).map(cleanText).filter(Boolean)
   const headings = lines.filter(x => x.length >= 3 && x.length < 120 && (x === x.toUpperCase() || /^\d+(?:\.\d+)*\s+/.test(x))).slice(0, 120)
-  const urls = uniq((text.match(/https?:\/\/[^\s)\]}>,]+/g) || []).map(x => x.replace(/[.,;]+$/, '')).slice(0, 150)
+  const urls = uniq((text.match(/https?:\/\/[^\s)\]}>,]+/g) || []).map(x => x.replace(/[.,;]+$/, ''))).slice(0, 150)
   const signals = extractDocumentSignals(rawText)
   const fullText = rawText.slice(0, MAX_PDF_TEXT)
   return {
